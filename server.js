@@ -8,6 +8,7 @@ app.use(express.static('client'));
 
 var io = require('socket.io')(server);
 var arr = [];
+var port = process.env.PORT || 8080;
 
 io.on('connection',function(socket){
     for (i = 0; i < arr.length; i++){
@@ -19,6 +20,6 @@ io.on('connection',function(socket){
     });
 });
 
-server.listen(8080,function(){
+server.listen(port,function(){
    console.log('Chat server running'); 
 });
